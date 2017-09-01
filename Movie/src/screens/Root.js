@@ -5,11 +5,39 @@ import {
   View
 } from 'react-native';
 import MovieList from '../components/MovieList';
+import {platform} from '../global';
 export default class RootScreen extends Component {
+  static navigatorButtons = {
+    leftButtons: [{
+      id: 'menu',
+      icon: platform == 'android' ? require('../assets/images/android/menu.png') : require('../assets/images/ios/menu.png')
+    }],
+    rightButtons: [{
+      id: 'search',
+      icon: platform == 'android' ? require('../assets/images/android/search.png') : require('../assets/images/ios/search.png')
+    }]
+  }
   constructor (props) {
     super(props)
     this.state = {
       list: []
+    };
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+  _menu () {
+    console.log(this)
+    this.props.navigator.toggleDrawer({
+      side: 'left',
+      animated: true
+    });
+  }
+  onNavigatorEvent(event) {
+    if (event.type == 'NavBarButtonPress') {
+      switch (event.id) {
+        case 'menu':
+          this._menu();
+          break;
+      }
     }
   }
   componentWillMount() {

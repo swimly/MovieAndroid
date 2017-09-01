@@ -10,8 +10,11 @@ Navigation.startSingleScreenApp({
   },
   drawer: {
     left: {
-      screen: 'app.movie'
-    }
+      screen: 'app.drawer'
+    },
+    style: {},
+    type: 'TheSideBar',
+    animationType: 'slide'
   },
   appStyle: {
     orientation: 'portrait',
