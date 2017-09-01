@@ -6,11 +6,23 @@ registerScreens();
 Navigation.startSingleScreenApp({
   screen: {
     screen: 'app.root',
-    title: '首页'
+    title: '推荐'
   },
   drawer: {
     left: {
       screen: 'app.movie'
     }
+  },
+  appStyle: {
+    orientation: 'portrait',
+    navBarTextColor: '#fff',
+    navBarBackgroundColor: '#148FED',
+    navBarButtonColor: '#fff',
+    drawUnderNavBar: true,
+    statusBarTextColorScheme: 'light',
+    statusBarColor: '#148FED',
+    screenBackgroundColor: '#F1F1F1',
+    collapsingToolBarImage: 'http://lorempixel.com/400/200/',
+    topBarElevationShadowEnabled: false
   }
 })
